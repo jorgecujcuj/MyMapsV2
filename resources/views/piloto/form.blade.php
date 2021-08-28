@@ -11,6 +11,11 @@
             {{ Form::text('nombre', $piloto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('idunidad') }}
+            {{ Form::text('idunidad', $piloto->idunidad, ['class' => 'form-control' . ($errors->has('idunidad') ? ' is-invalid' : ''), 'placeholder' => 'Id Unidad']) }}
+            {!! $errors->first('idunidad', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
 
     </div>
     <div class="box-footer mt20">

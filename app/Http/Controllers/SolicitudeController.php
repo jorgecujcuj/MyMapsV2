@@ -82,9 +82,14 @@ class SolicitudeController extends Controller
      */
     public function edit($id)
     {
+        $unidades = Unidade::orderBy('placa')->get();
+        $fincas = Finca::orderBy('nombre')->get();
+        $pilotos = Piloto::orderBy('nombre')->get();
         $solicitude = Solicitude::find($id);
 
-        return view('solicitude.edit', compact('solicitude'));
+        //return $solicitude->idunidad;
+
+        return view('solicitude.edit', compact('solicitude','unidades','fincas','pilotos'));
     }
 
     /**

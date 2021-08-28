@@ -24,7 +24,7 @@ class Finca extends Model
     
 		'codigo' => 'required',
 		'nombre' => 'required',
-    'idruta' => 'required',
+
     ];
 
     protected $perPage = 20;

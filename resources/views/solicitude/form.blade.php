@@ -1,12 +1,12 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+        <!--
         <div class="form-group">
             {{ Form::label('idunidad') }}
 			<select class="form-control" name="idunidad">
-                    <option value="" selected disabled>Selecciona una unidad</option>
+                    <option value="">{{ $solicitude->idunidad }} - activo </option>
                     @foreach ($unidades as $unidade)
-                    <option value="{{ $unidade->id }}"> {{ $unidade->placa }}</option>
+                    <option value="{{ $unidade->id }}"> {{$unidade->id}} - {{ $unidade->placa }}</option>
                     @endforeach
             </select>
             @error('idunidad')
@@ -14,12 +14,15 @@
             @enderror
 
         </div>
+        -->
+
         <div class="form-group">
             {{ Form::label('idfinca') }}
             <select class="form-control" name="idfinca">
-                    <option value="" selected disabled>Selecciona una finca</option>
+                   <!-- <option value="" selected disabled>Selecciona una finca</option>-->
+                   <option value="">{{ $solicitude->idfinca }} - activo </option>
                     @foreach ($fincas as $fincas)
-                    <option value="{{ $fincas->id }}"> {{ $fincas->nombre }}</option>
+                    <option value="{{ $fincas->id }}">{{ $fincas->id }} - {{ $fincas->nombre }}</option>
                     @endforeach
             </select>
             @error('idfinca')
@@ -30,9 +33,10 @@
         <div class="form-group">
             {{ Form::label('idpiloto') }}
             <select class="form-control" name="idpiloto">
-                    <option value="" selected disabled>Selecciona una Piloto</option>
+                    <!--<option value="" selected disabled>Selecciona una Piloto</option>-->
+                    <option value="">{{ $solicitude->idpiloto }} - activo </option>
                     @foreach ($pilotos as $pilotos)
-                    <option value="{{ $pilotos->id }}"> {{ $pilotos->nombre }}</option>
+                    <option value="{{ $pilotos->id }}">{{ $pilotos->id }} - {{ $pilotos->nombre }}</option>
                     @endforeach
             </select>
             @error('idpiloto')

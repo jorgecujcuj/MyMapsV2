@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #E9F7EF;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('fincas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Finca') }}
+                                  {{ __('Crear') }}
                                 </a>
                               </div>
                         </div>

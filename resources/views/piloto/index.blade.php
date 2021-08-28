@@ -9,16 +9,16 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header"  style="background-color: #E9F7EF;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Piloto') }}
+                                {{ __('Pilotos') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('pilotos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear') }}
                                 </a>
                               </div>
                         </div>
@@ -38,6 +38,7 @@
                                         
 										<th>Codigo</th>
 										<th>Nombre</th>
+                                        <th>Id Unidad</th>
 
                                         <th></th>
                                     </tr>
@@ -49,14 +50,15 @@
                                             
 											<td>{{ $piloto->codigo }}</td>
 											<td>{{ $piloto->nombre }}</td>
+                                            <td>{{ $piloto->idunidad }}</td>
 
                                             <td>
                                                 <form action="{{ route('pilotos.destroy',$piloto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('pilotos.show',$piloto->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('pilotos.edit',$piloto->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('pilotos.show',$piloto->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('pilotos.edit',$piloto->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Piloto</span>
+                            <span class="card-title">Datos del Piloto</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('pilotos.index') }}"> Back</a>
@@ -30,6 +30,10 @@
                         <div class="form-group">
                             <strong>Nombre:</strong>
                             {{ $piloto->nombre }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Id Unidad:</strong>
+                            {{ $piloto->idunidad }}
                         </div>
 
                     </div>

@@ -17,6 +17,7 @@ class Pilotos extends Migration
             $table->bigIncrements('id');
             $table->string('codigo');
             $table->string('nombre');
+            $table->bigInteger('idunidad');
             $table->timestamps();
         });
     }

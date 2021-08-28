@@ -22,6 +22,7 @@ class Piloto extends Model
     static $rules = [
 		'codigo' => 'required',
 		'nombre' => 'required',
+    'idunidad' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,7 +32,7 @@ class Piloto extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo','nombre'];
+    protected $fillable = ['codigo','nombre','idunidad'];
 
 
 

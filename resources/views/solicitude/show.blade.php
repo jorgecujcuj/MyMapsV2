@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Solicitude</span>
+                            <span class="card-title">Datos de la Solicitud</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('solicitudes.index') }}"> Back</a>
@@ -20,11 +20,6 @@
 
                     <div class="card-body">
                         
-                       
-                        <div class="form-group">
-                            <strong>Idunidad:</strong>
-                            {{ $solicitude->idunidad }}
-                        </div>
                         <div class="form-group">
                             <strong>Idfinca:</strong>
                             {{ $solicitude->idfinca }}

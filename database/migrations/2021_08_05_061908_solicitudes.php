@@ -16,9 +16,8 @@ class Solicitudes extends Migration
         //
         Schema::create('solicitudes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('idunidad')->unique();
-            $table->bigInteger('idfinca')->unique();
-            $table->bigInteger('idpiloto')->unique();
+            $table->bigInteger('idfinca');
+            $table->bigInteger('idpiloto');
             $table->integer('telefono');
             $table->string('observacion');
             $table->timestamps();

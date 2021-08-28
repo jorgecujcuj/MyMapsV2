@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sw" style="background-color: #198754;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'My Maps') }}
@@ -39,7 +39,7 @@
                     <!-- Lado izquierdo de la barra de navegación -->
                     @if(Auth::check())
                     <ul class="navbar-nav mr-auto">
-                     <li class="nav-item dropdown">
+                     <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Solicitar Ruta
                             </a>
@@ -52,12 +52,8 @@
                             <a class="dropdown-item" href="{{ url('/') }}">{{ __('Confirmación') }}</a>
                             </div>
                      </li>
-                    </ul>
-                    @endif
 
-                    @if(Auth::check())
-                    <ul class="navbar-nav mr-auto">
-                     <li class="nav-item dropdown">
+                     <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tablas Maestras
                             </a>
@@ -70,9 +66,10 @@
                             <a class="dropdown-item" href="{{ url('fincas') }}">{{ __('Fincas') }}</a>
                             </div>
                      </li>
+
                     </ul>
                     @endif
-
+                
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -95,7 +92,7 @@
                             <a class="nav-link" href="{{  url('/') }}">{{ __('Ubicación') }}</a>
                         </ul> -->
 
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown active">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

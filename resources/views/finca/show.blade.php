@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Detalles de la Finca</span>
+                            <span class="card-title">Datos de la Finca</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('fincas.index') }}"> Retornar</a>
