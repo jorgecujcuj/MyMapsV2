@@ -38,6 +38,7 @@
                                         
 										<th>Idfinca</th>
 										<th>Idpiloto</th>
+                                        <th>Fecha solicitada</th>
 										<th>Telefono</th>
 										<th>Observacion</th>
 
@@ -51,6 +52,7 @@
                                             
 											<td>{{ $solicitude->idfinca }}</td>
 											<td>{{ $solicitude->idpiloto }}</td>
+                                            <td>{{ $solicitude->fechasolicitada }}</td>
 											<td>{{ $solicitude->telefono }}</td>
 											<td>{{ $solicitude->observacion }}</td>
 

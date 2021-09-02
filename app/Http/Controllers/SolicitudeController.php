@@ -38,11 +38,10 @@ class SolicitudeController extends Controller
      */
     public function create()
     {
-        $unidades = Unidade::orderBy('placa')->get();
         $fincas = Finca::orderBy('nombre')->get();
         $pilotos = Piloto::orderBy('nombre')->get();
         $solicitude = new Solicitude();
-        return view('solicitude.create', compact('solicitude','unidades','fincas','pilotos'));
+        return view('solicitude.create', compact('solicitude','fincas','pilotos'));
     }
 
     /**
@@ -82,14 +81,13 @@ class SolicitudeController extends Controller
      */
     public function edit($id)
     {
-        $unidades = Unidade::orderBy('placa')->get();
         $fincas = Finca::orderBy('nombre')->get();
         $pilotos = Piloto::orderBy('nombre')->get();
         $solicitude = Solicitude::find($id);
 
-        //return $solicitude->idunidad;
+        //return $solicitude;
 
-        return view('solicitude.edit', compact('solicitude','unidades','fincas','pilotos'));
+        return view('solicitude.edit', compact('solicitude','fincas','pilotos'));
     }
 
     /**

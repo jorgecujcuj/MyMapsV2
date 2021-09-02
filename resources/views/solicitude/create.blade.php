@@ -20,7 +20,6 @@
                             @csrf
 
                             @include('solicitude.form')
-
                         </form>
                     </div>
                 </div>
@@ -28,3 +27,4 @@
         </div>
     </section>
 @endsection
+

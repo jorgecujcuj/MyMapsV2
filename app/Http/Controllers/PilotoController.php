@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Piloto;
+use App\Models\Unidade;
 use Illuminate\Http\Request;
 
 /**
@@ -35,8 +36,9 @@ class PilotoController extends Controller
      */
     public function create()
     {
+        $unidades = Unidade::orderBy('unidad')->get();
         $piloto = new Piloto();
-        return view('piloto.create', compact('piloto'));
+        return view('piloto.create', compact('piloto','unidades'));
     }
 
     /**
@@ -76,9 +78,10 @@ class PilotoController extends Controller
      */
     public function edit($id)
     {
+        $unidades = Unidade::orderBy('unidad')->get();
         $piloto = Piloto::find($id);
 
-        return view('piloto.edit', compact('piloto'));
+        return view('piloto.edit', compact('piloto','unidades'));
     }
 
     /**

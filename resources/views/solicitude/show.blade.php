@@ -29,6 +29,10 @@
                             {{ $solicitude->idpiloto }}
                         </div>
                         <div class="form-group">
+                            <strong>Fecha solicitada:</strong>
+                            {{ $solicitude->fechasolicitada}}
+                        </div>
+                        <div class="form-group">
                             <strong>Telefono:</strong>
                             {{ $solicitude->telefono }}
                         </div>

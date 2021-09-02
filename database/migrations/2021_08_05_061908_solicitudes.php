@@ -18,6 +18,7 @@ class Solicitudes extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('idfinca');
             $table->bigInteger('idpiloto');
+            $table->timestamps('fechasolicitada');
             $table->integer('telefono');
             $table->string('observacion');
             $table->timestamps();

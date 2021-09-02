@@ -13,10 +13,16 @@
         </div>
         <div class="form-group">
             {{ Form::label('idunidad') }}
-            {{ Form::text('idunidad', $piloto->idunidad, ['class' => 'form-control' . ($errors->has('idunidad') ? ' is-invalid' : ''), 'placeholder' => 'Id Unidad']) }}
-            {!! $errors->first('idunidad', '<div class="invalid-feedback">:message</p>') !!}
+            <select class="form-control" name="idunidad">
+                    <option value="" selected disabled> - Selecciona una unidad - </option>
+                    @foreach ($unidades as $unidade)
+                    <option value="{{ $unidade->id }}" {{$unidade->id == $piloto->idunidad ? 'selected' : ''}}>{{ $unidade->unidad }}</option>
+                    @endforeach
+            </select>
+            @error('idunidad')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
-
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Submit</button>

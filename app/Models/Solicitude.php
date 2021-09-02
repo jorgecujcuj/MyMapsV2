@@ -25,6 +25,7 @@ class Solicitude extends Model
     static $rules = [
 		'idfinca' => 'required',
 		'idpiloto' => 'required',
+    'fechasolicitada' => 'required',
 		'telefono' => 'required',
 		'observacion' => 'required',
     ];
@@ -36,7 +37,7 @@ class Solicitude extends Model
      *
      * @var array
      */
-    protected $fillable = ['idfinca','idpiloto','telefono','observacion'];
+    protected $fillable = ['idfinca','idpiloto','fechasolicitada','telefono','observacion'];
 
 
 

@@ -11,13 +11,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
+
 </head>
 <body>
     <div id="app">
@@ -67,11 +71,22 @@
                             </div>
                      </li>
 
+                     <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Usuarios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('register') }}">{{ __('Crear Usuario') }}</a>                          
+                           
+                     </li>
+
                     </ul>
                     @endif
                 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
