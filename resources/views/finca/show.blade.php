@@ -21,7 +21,7 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Idfinca:</strong>
+                            <strong>id:</strong>
                             {{ $finca->id }}
                         </div>
                         <div class="form-group">

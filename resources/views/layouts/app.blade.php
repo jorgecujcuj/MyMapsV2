@@ -8,19 +8,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <title>{{ config('app.name', 'My Maps') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    @yield('scripts')
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     @yield('css')
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('js')
 
 </head>
 <body>
@@ -51,7 +51,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('solicitudes') }}">{{ __('Solicitud') }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('/') }}">{{ __('Estado') }}</a>
+                            <a class="dropdown-item" href="{{ url('programados') }}">{{ __('Programados') }}</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('/') }}">{{ __('Confirmación') }}</a>
                             </div>

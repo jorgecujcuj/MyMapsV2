@@ -24,6 +24,7 @@ class Finca extends Model
     
 		'codigo' => 'required',
 		'nombre' => 'required',
+    'administracion' => 'required',
 
     ];
 
@@ -34,8 +35,6 @@ class Finca extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo','nombre','idruta'];
-
-
+    protected $fillable = ['codigo','nombre','administracion','idruta'];
 
 }

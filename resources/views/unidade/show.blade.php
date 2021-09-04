@@ -20,20 +20,20 @@
 
                     <div class="card-body">
                         <div class="form-group">
-                            <strong>IdUnidad:</strong>
+                            <strong>Id:</strong>
                             {{ $unidade->id }}
                         </div>
                         <div class="form-group">
-                            <strong>Unidad:</strong>
-                            {{ $unidade->unidad }}
+                            <strong>Codigo:</strong>
+                            {{ $unidade->codigo }}
                         </div>
                         <div class="form-group">
                             <strong>Placa:</strong>
                             {{ $unidade->placa }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {{ $unidade->descripcion }}
+                            <strong>Capacidad:</strong>
+                            {{ $unidade->capacidad }}
                         </div>
 
                     </div>

@@ -34,10 +34,11 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>id</th> 
+                                        <th>No.</th> 
 
 										<th>Codigo</th>
 										<th>Nombre</th>
+                                        <th>Administración</th>
 										<th>Idruta</th>
 
                                         <th></th>
@@ -50,6 +51,7 @@
                                             
 											<td>{{ $finca->codigo }}</td>
 											<td>{{ $finca->nombre }}</td>
+                                            <td>{{ $finca->administracion }}</td>
 											<td>{{ $finca->idruta }}</td>
 
                                             <td>

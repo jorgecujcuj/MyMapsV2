@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Pilotos extends Migration
+class Confirmaciones extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class Pilotos extends Migration
      */
     public function up()
     {
-        Schema::create('pilotos', function (Blueprint $table) {
+        //
+        Schema::create('confirmaciones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('codigo');
-            $table->string('nombre');
-            $table->bigInteger('idunidad')->nullable();
+            $table->bigInteger('idprogramado');
+            $table->string('latitud');
+            $table->string('longitud');
+            $table->string('abastecida');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class Pilotos extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('pilotos');
+        Schema::dropIfExists('confirmaciones');
     }
 }

@@ -25,7 +25,7 @@ class SolicitudeController extends Controller
      */
     public function index()
     {
-        $solicitudes = Solicitude::paginate();
+        $solicitudes = Solicitude::paginate(10);
 
         return view('solicitude.index', compact('solicitudes'))
             ->with('i', (request()->input('page', 1) - 1) * $solicitudes->perPage());

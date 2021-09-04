@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #E9F7EF;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
@@ -32,7 +32,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
-                                <thead class="thead">
+                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
                                         
@@ -45,7 +45,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                    <tbody>
                                     @foreach ($solicitudes as $solicitude)
                                         <tr>
                                             <td>{{ ++$i }}</td>
@@ -66,11 +66,11 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
-                                </tbody>
+                                    @endforeach 
+                                    </tbody>
                             </table>
                         </div>
-                    </div>
+                   </div>
                 </div>
                 {!! $solicitudes->links() !!}
             </div>

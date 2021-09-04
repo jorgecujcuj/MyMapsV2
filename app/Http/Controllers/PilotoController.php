@@ -23,7 +23,7 @@ class PilotoController extends Controller
      */
     public function index()
     {
-        $pilotos = Piloto::paginate();
+        $pilotos = Piloto::paginate(10);
 
         return view('piloto.index', compact('pilotos'))
             ->with('i', (request()->input('page', 1) - 1) * $pilotos->perPage());

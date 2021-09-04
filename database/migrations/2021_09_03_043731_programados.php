@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Pilotos extends Migration
+class Programados extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class Pilotos extends Migration
      */
     public function up()
     {
-        Schema::create('pilotos', function (Blueprint $table) {
+        //
+        Schema::create('programados', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('codigo');
-            $table->string('nombre');
-            $table->bigInteger('idunidad')->nullable();
+            $table->bigInteger('idsolicitud');
+            $table->string('operador');
+            $table->string('estado');
+            $table->bigInteger('idfinca');
+            $table->bigInteger('idunidad');
+            $table->timestamps('salida');
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class Pilotos extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('pilotos');
+        Schema::dropIfExists('programados');
     }
 }

@@ -15,9 +15,10 @@ class Fincas extends Migration
     {
         //
         Schema::create('fincas', function (Blueprint $table) {
-            $table->bigIncrements('idfinca');
+            $table->bigIncrements('id');
             $table->string('codigo');
             $table->string('nombre');
+            $table->string('administracion');
             $table->bigInteger('idruta')->nullable();
             $table->timestamps();
         });

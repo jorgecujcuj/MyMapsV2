@@ -22,8 +22,7 @@ class FincaController extends Controller
      */
     public function index()
     {
-        $fincas = Finca::paginate();
-        //return $fincas;
+        $fincas = Finca::paginate(10);
         return view('finca.index', compact('fincas'))
             ->with('i', (request()->input('page', 1) - 1) * $fincas->perPage());
     }

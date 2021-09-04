@@ -2,9 +2,9 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('unidad') }}
-            {{ Form::text('unidad', $unidade->unidad, ['class' => 'form-control' . ($errors->has('unidad') ? ' is-invalid' : ''), 'placeholder' => 'Unidad']) }}
-            {!! $errors->first('unidad', '<div class="invalid-feedback">:message</p>') !!}
+            {{ Form::label('codigo') }}
+            {{ Form::text('codigo', $unidade->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => 'Codigo']) }}
+            {!! $errors->first('codigo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('placa') }}
@@ -12,9 +12,9 @@
             {!! $errors->first('placa', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('descripcion') }}
-            {{ Form::text('descripcion', $unidade->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
-            {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</p>') !!}
+            {{ Form::label('capacidad') }}
+            {{ Form::text('capacidad', $unidade->capacidad, ['class' => 'form-control' . ($errors->has('capacidad') ? ' is-invalid' : ''), 'placeholder' => 'Capacidad']) }}
+            {!! $errors->first('capacidad', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
     </div>

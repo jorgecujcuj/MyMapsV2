@@ -26,7 +26,6 @@
             @enderror
         </div>
         
-
         <div class="form-group">
             <label for="fechasolicitada">Fecha Solicitada
             <input type="datetime-local" class="form-control @error('fechasolicitada') is-invalid @enderror"
@@ -51,11 +50,3 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>
-
-@section('css')
-
-@endsection
-
-@section('scripts')
-
-@endsection

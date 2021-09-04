@@ -1,11 +1,5 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
-     <!--   <div class="form-group">
-            {{ Form::label('Id Finca') }}
-            {{ Form::text('idfinca', $finca->idfinca, ['class' => 'form-control' . ($errors->has('idfinca') ? ' is-invalid' : ''), 'placeholder' => 'Id finca']) }}
-            {!! $errors->first('idfinca', '<div class="invalid-feedback">:message</p>') !!}
-        </div>-->
         <div class="form-group">
             {{ Form::label('Codigo') }}
             {{ Form::text('codigo', $finca->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => 'Codigo']) }}
@@ -15,6 +9,11 @@
             {{ Form::label('Nombre') }}
             {{ Form::text('nombre', $finca->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('Descripcion') }}
+            {{ Form::text('administracion', $finca->administracion, ['class' => 'form-control' . ($errors->has('administracion') ? ' is-invalid' : ''), 'placeholder' => 'Administracion']) }}
+            {!! $errors->first('administracion', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Id Ruta') }}

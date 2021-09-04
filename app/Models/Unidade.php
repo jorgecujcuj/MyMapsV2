@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Unidade
  *
  * @property $id
- * @property $unidad
+ * @property $codigo
  * @property $placa
  * @property $descripcion
  * @property $created_at
@@ -21,9 +21,9 @@ class Unidade extends Model
 {
     
     static $rules = [
-		'unidad' => 'required',
+		'codigo' => 'required',
 		'placa' => 'required',
-		'descripcion' => 'required',
+		'capacidad' => 'required',
     ];
 
     protected $perPage = 20;
@@ -33,7 +33,7 @@ class Unidade extends Model
      *
      * @var array
      */
-    protected $fillable = ['unidad','placa','descripcion'];
+    protected $fillable = ['codigo','placa','capacidad'];
 
 
 

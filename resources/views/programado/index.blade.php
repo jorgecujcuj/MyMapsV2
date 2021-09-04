@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Unidade
+    Programado
 @endsection
 
 @section('content')
@@ -9,16 +9,16 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header" style="background-color: #E9F7EF;">
+                    <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Unidades') }}
+                                {{ __('Programado') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('unidades.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear') }}
+                                <a href="{{ route('programados.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
                                 </a>
                               </div>
                         </div>
@@ -36,29 +36,35 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Codigo</th>
-										<th>Placa</th>
-										<th>Capacidad</th>
+										<th>Idsolicitud</th>
+										<th>Operador</th>
+										<th>Estado</th>
+										<th>Idfinca</th>
+										<th>Idunidad</th>
+										<th>Salida</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($unidades as $unidade)
+                                    @foreach ($programados as $programado)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $unidade->codigo }}</td>
-											<td>{{ $unidade->placa }}</td>
-											<td>{{ $unidade->capacidad }}</td>
+											<td>{{ $programado->idsolicitud }}</td>
+											<td>{{ $programado->operador }}</td>
+											<td>{{ $programado->estado }}</td>
+											<td>{{ $programado->idfinca }}</td>
+											<td>{{ $programado->idunidad }}</td>
+											<td>{{ $programado->salida }}</td>
 
                                             <td>
-                                                <form action="{{ route('unidades.destroy',$unidade->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('unidades.show',$unidade->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('unidades.edit',$unidade->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('programados.destroy',$programado->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('programados.show',$programado->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('programados.edit',$programado->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -68,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $unidades->links() !!}
+                {!! $programados->links() !!}
             </div>
         </div>
     </div>

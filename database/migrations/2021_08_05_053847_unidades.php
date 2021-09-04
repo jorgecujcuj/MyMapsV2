@@ -16,9 +16,9 @@ class Unidades extends Migration
         //
         Schema::create('unidades', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('unidad');
+            $table->string('codigo');
             $table->string('placa');
-            $table->string('descripcion');
+            $table->string('capacidad');
             $table->timestamps();
         });
     }

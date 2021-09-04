@@ -22,7 +22,7 @@ class UnidadeController extends Controller
      */
     public function index()
     {
-        $unidades = Unidade::paginate();
+        $unidades = Unidade::paginate(10);
 
         return view('unidade.index', compact('unidades'))
             ->with('i', (request()->input('page', 1) - 1) * $unidades->perPage());
