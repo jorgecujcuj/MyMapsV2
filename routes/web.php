@@ -26,3 +26,4 @@ Route::resource('pilotos', App\Http\Controllers\PilotoController::class);
 Route::resource('unidades', App\Http\Controllers\UnidadeController::class);
 Route::resource('solicitudes', App\Http\Controllers\SolicitudeController::class);
 Route::resource('programados', App\Http\Controllers\ProgramadoController::class);
+Route::resource('confirmaciones', App\Http\Controllers\ConfirmacioneController::class);

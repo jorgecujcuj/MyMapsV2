@@ -3,8 +3,15 @@
         
         <div class="form-group">
             {{ Form::label('idsolicitud') }}
-            {{ Form::text('idsolicitud', $programado->idsolicitud, ['class' => 'form-control' . ($errors->has('idsolicitud') ? ' is-invalid' : ''), 'placeholder' => 'Idsolicitud']) }}
-            {!! $errors->first('idsolicitud', '<div class="invalid-feedback">:message</p>') !!}
+            <select class="form-control" name="idsolicitud">
+                   <option value=""selected disabled> - Selecciona una solicitud - </option>
+                    @foreach ($solicitudes as $solicitudes)
+                    <option value="{{ $solicitudes->id }}" {{$solicitudes->id == $programado->idsolicitud ? 'selected' : ''}} >{{ $solicitudes->fechasolicitada }}</option>
+                    @endforeach
+            </select>
+            @error('idsolicitud')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-group">
             {{ Form::label('operador') }}
@@ -18,18 +25,35 @@
         </div>
         <div class="form-group">
             {{ Form::label('idfinca') }}
-            {{ Form::text('idfinca', $programado->idfinca, ['class' => 'form-control' . ($errors->has('idfinca') ? ' is-invalid' : ''), 'placeholder' => 'Idfinca']) }}
-            {!! $errors->first('idfinca', '<div class="invalid-feedback">:message</p>') !!}
+            <select class="form-control" name="idfinca">
+                   <option value=""selected disabled> - Selecciona una finca - </option>
+                    @foreach ($fincas as $fincas)
+                    <option value="{{ $fincas->id }}" {{$fincas->id == $programado->idfinca ? 'selected' : ''}} >{{ $fincas->nombre }}</option>
+                    @endforeach
+            </select>
+            @error('idfinca')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-group">
             {{ Form::label('idunidad') }}
-            {{ Form::text('idunidad', $programado->idunidad, ['class' => 'form-control' . ($errors->has('idunidad') ? ' is-invalid' : ''), 'placeholder' => 'Idunidad']) }}
-            {!! $errors->first('idunidad', '<div class="invalid-feedback">:message</p>') !!}
+            <select class="form-control" name="idunidad">
+                   <option value=""selected disabled> - Selecciona una Unidad - </option>
+                    @foreach ($unidades as $unidades)
+                    <option value="{{ $unidades->id }}" {{$unidades->id == $programado->idunidad ? 'selected' : ''}} >{{ $unidades->placa }}</option>
+                    @endforeach
+            </select>
+            @error('idunidad')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-group">
-            {{ Form::label('salida') }}
-            {{ Form::text('salida', $programado->salida, ['class' => 'form-control' . ($errors->has('salida') ? ' is-invalid' : ''), 'placeholder' => 'Salida']) }}
-            {!! $errors->first('salida', '<div class="invalid-feedback">:message</p>') !!}
+            <label for="salida">Fecha Salida
+            <input type="datetime-local" class="form-control @error('salida') is-invalid @enderror"
+            name="salida" id="salida" value="{{ $programado->salida }}"
+            min="2020-01-01T00:00:00" max="2050-01-01T00:00:00">
+            @error('salida')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </label>
         </div>
 
     </div>

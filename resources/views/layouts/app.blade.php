@@ -23,7 +23,7 @@
     @yield('js')
 
 </head>
-<body>
+<body onload="initialize();">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark shadow-sw" style="background-color: #198754;">
             <div class="container">
@@ -53,7 +53,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('programados') }}">{{ __('Programados') }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('/') }}">{{ __('Confirmación') }}</a>
+                            <a class="dropdown-item" href="{{ url('confirmaciones') }}">{{ __('Confirmación') }}</a>
                             </div>
                      </li>
 
@@ -102,11 +102,6 @@
                             @endif
                             -->
                         @else
-                        <!--
-                        <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="{{  url('/') }}">{{ __('Ubicación') }}</a>
-                        </ul> -->
-
                             <li class="nav-item dropdown active">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

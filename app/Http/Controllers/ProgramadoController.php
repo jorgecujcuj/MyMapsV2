@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Programado;
+use App\Models\Solicitude;
+use App\Models\Finca;
+use App\Models\Unidade;
 use Illuminate\Http\Request;
 
 /**
@@ -18,7 +21,7 @@ class ProgramadoController extends Controller
      */
     public function index()
     {
-        $programados = Programado::paginate(10);
+        $programados = Programado::orderBy('id','desc')->paginate(10);
 
         return view('programado.index', compact('programados'))
             ->with('i', (request()->input('page', 1) - 1) * $programados->perPage());
@@ -32,7 +35,11 @@ class ProgramadoController extends Controller
     public function create()
     {
         $programado = new Programado();
-        return view('programado.create', compact('programado'));
+        $solicitudes = Solicitude::orderBy('fechasolicitada','desc')->get();
+        $fincas = Finca::orderBy('nombre')->get();
+        $unidades = Unidade::orderBy('placa')->get();
+
+        return view('programado.create', compact('programado','solicitudes','fincas','unidades'));
     }
 
     /**
@@ -73,8 +80,11 @@ class ProgramadoController extends Controller
     public function edit($id)
     {
         $programado = Programado::find($id);
+        $solicitudes = Solicitude::orderBy('fechasolicitada','desc')->get();
+        $fincas = Finca::orderBy('nombre')->get();
+        $unidades = Unidade::orderBy('placa')->get();
 
-        return view('programado.edit', compact('programado'));
+        return view('programado.edit', compact('programado','solicitudes','fincas','unidades'));
     }
 
     /**
