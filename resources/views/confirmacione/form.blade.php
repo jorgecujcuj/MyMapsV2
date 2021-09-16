@@ -1,3 +1,4 @@
+<body onload="initialize()">
 <div class="box box-info padding-1">
     <div class="box-body">
         <div class="form-group">
@@ -54,44 +55,81 @@
     </div>
 </div>
 
+</body>
+
 @section('css')
+<link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+/>
 @endsection
 
 @section('js')
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> <!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
+<script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9DY04K6SIJModAyyH5uTIp4bWqhe9p6E"></script>
 <script type="text/javascript">
         function initialize() {
-            // Creando objeto de mapa
-            var map = new google.maps.Map(document.getElementById('map_canvas'), {
-                zoom: 12,
-                center: new google.maps.LatLng(-34.9206797, -57.9537638),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
+            if ('geolocation' in navigator) {
+                console.log('geolocation available');
+                navigator.geolocation.getCurrentPosition(position => {
+                //Balidamos si los input estan bacios
+                var va1 = $('#txtLat').val().split(' ').join('');
+                var va2 = $('#txtLng').val().split(' ').join('');
+                if (va1 == '' & va2 == '') {
+                  lat = position.coords.latitude;
+                  lon = position.coords.longitude;
+                }else{
+                    lat = va1;
+                    lon = va2;
+                }
+                console.log(lat, lon);
 
-            // crea un marcador que se puede arrastrar a las coordenadas dadas
-            var vMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(-34.9206797, -57.9537638),
-                draggable: true
-            });
+                    // Creando objeto de mapa
+                    var map = new google.maps.Map(document.getElementById('map_canvas'), {
+                        zoom: 12,
+                        //center: new google.maps.LatLng(-34.9206797, -57.9537638),
+                        center: new google.maps.LatLng(lat, lon),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
 
-            // agrega un oyente al marcador
-            // obtiene las coordenadas cuando finaliza el evento de arrastre
-            // luego actualiza la entrada con las nuevas coordenadas 
-            google.maps.event.addListener(vMarker, 'dragend', function (evt) {
-                $("#txtLat").val(evt.latLng.lat().toFixed(6));
-                $("#txtLng").val(evt.latLng.lng().toFixed(6));
+                    //verificacion si soporta geolocalizacion
+                    
+                    // crea un marcador que se puede arrastrar a las coordenadas dadas
+                    var vMarker = new google.maps.Marker({
+                        position: new google.maps.LatLng(lat, lon),
+                        draggable: true
+                    });
 
-                map.panTo(evt.latLng);
-            });
+                    // agrega un oyente al marcador
+                    // obtiene las coordenadas cuando finaliza el evento de arrastre
+                    // luego actualiza la entrada con las nuevas coordenadas 
+                    google.maps.event.addListener(vMarker, 'dragend', function (evt) {
+                        $("#txtLat").val(evt.latLng.lat().toFixed(6));
+                        $("#txtLng").val(evt.latLng.lng().toFixed(6));
 
-            // centra el mapa en marcadores de coordenadas
-            map.setCenter(vMarker.position);
+                        map.panTo(evt.latLng);
+                    });
 
-            // agrega el marcador en el mapa
-            vMarker.setMap(map);
+                    // centra el mapa en marcadores de coordenadas
+                    map.setCenter(vMarker.position);
+
+                    // agrega el marcador en el mapa
+                    vMarker.setMap(map);
+
+                });
+            } else {
+                console.log('geolocalización no disponible');
+            }
+            
         }
 </script>
 @endsection

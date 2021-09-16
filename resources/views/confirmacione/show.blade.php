@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Confirmacione</span>
+                            <span class="card-title">Ver Confirmaciones</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('confirmaciones.index') }}"> Back</a>

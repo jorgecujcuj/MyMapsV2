@@ -23,7 +23,7 @@
     @yield('js')
 
 </head>
-<body onload="initialize();">
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark shadow-sw" style="background-color: #198754;">
             <div class="container">
