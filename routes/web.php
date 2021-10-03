@@ -27,3 +27,5 @@ Route::resource('unidades', App\Http\Controllers\UnidadeController::class);
 Route::resource('solicitudes', App\Http\Controllers\SolicitudeController::class);
 Route::resource('programados', App\Http\Controllers\ProgramadoController::class);
 Route::resource('confirmaciones', App\Http\Controllers\ConfirmacioneController::class);
+Route::resource('rutas', App\Http\Controllers\RutaController::class);
+Route::resource('verRuta', App\Http\Controllers\VerRutaController::class);

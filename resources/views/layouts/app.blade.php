@@ -73,11 +73,13 @@
 
                      <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Usuarios
+                            Trazar rutas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('register') }}">{{ __('Crear Usuario') }}</a>                          
+                            <a class="dropdown-item" href="{{ url('rutas') }}">{{ __('Crer Ruta') }}</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url('verRuta') }}">{{ __('ver Ruta') }}</a>                             
                            
                      </li>
 

@@ -1,46 +1,32 @@
 <body onload="initialize()">
 <div class="box box-info padding-1">
     <div class="box-body">
+        
         <div class="form-group">
-            {{ Form::label('idprogramado') }}
-            <select class="form-control" name="idprogramado">
-                   <option value=""selected disabled> - Selecciona una solicitud - </option>
-                    @foreach ($programados as $programado)
-                    <option value="{{ $programado->id }}" {{$programado->id == $confirmacione->idprogramado ? 'selected' : ''}} >{{ $programado->idsolicitud }}</option>
-                    @endforeach
-            </select>
-            @error('idprogramado')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            {{ Form::label('codigo') }}
+            {{ Form::text('codigo', $ruta->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => 'Codigo']) }}
+            {!! $errors->first('codigo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
-
+        <div class="form-group">
+            {{ Form::label('nombre') }}
+            {{ Form::text('nombre', $ruta->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+            {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
         <div class="form-group">
             <label for="form-control">Latitud
             <input type="text" class="form-control @error('latitud') is-invalid @enderror"
-            name="latitud" id="txtLat" value="{{ $confirmacione->latitud }}"
+            name="latitud" id="txtLat" value="{{ $ruta->latitud }}"
             style="color:red" >
             @error('latitud')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </label>
         </div>
-
         <div class="form-group">
             <label for="form-control">Longitud
             <input type="text" class="form-control @error('longitud') is-invalid @enderror"
-            name="longitud" id="txtLng" value="{{ $confirmacione->longitud }}"
+            name="longitud" id="txtLng" value="{{ $ruta->longitud }}"
             style="color:red" >
             @error('longitud')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </label>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('abastecida') }}
-            {{ Form::text('abastecida', $confirmacione->abastecida, ['class' => 'form-control' . ($errors->has('abastecida') ? ' is-invalid' : ''), 'placeholder' => 'Abastecida']) }}
-            {!! $errors->first('abastecida', '<div class="invalid-feedback">:message</p>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('descripcion') }}
-            {{ Form::text('descripcion', $confirmacione->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
-            {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
     </div>
