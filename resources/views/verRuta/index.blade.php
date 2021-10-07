@@ -78,7 +78,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9DY04K6SIJModAyyH5uTIp4bWqhe9p6E"></script>
 
 <script type="text/javascript">
-function initialize() {
+    function initialize() {
         var divMapa = document.getElementById("googleMap");
         navigator.geolocation.getCurrentPosition(fn_ok, fn_mal);
         function fn_mal(){
@@ -142,6 +142,6 @@ function initialize() {
         
         }
         
-}
+    }
 </script>
 @endsection
