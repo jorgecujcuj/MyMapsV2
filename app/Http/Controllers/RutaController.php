@@ -17,12 +17,19 @@ class RutaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $rutas = Ruta::paginate();
+        //$rutas = Ruta::paginate();
 
-        return view('ruta.index', compact('rutas'))
-            ->with('i', (request()->input('page', 1) - 1) * $rutas->perPage());
+        //return view('ruta.index', compact('rutas'))
+        //    ->with('i', (request()->input('page', 1) - 1) * $rutas->perPage());
+        
+        $texto = trim($request->get('texto'));
+        $rutas=Ruta::where('nombre','LIKE','%'.$texto.'%')
+        ->orderBy('nombre')
+        ->paginate(10);
+
+        return view('ruta.index', compact('rutas','texto'));
     }
 
     /**

@@ -17,14 +17,16 @@ class VerRutaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $rut = Ruta::paginate(10);
+        //$rut = Ruta::paginate(10);
         //$rutas = Ruta::orderBy('id','desc')->paginate(10);
+        $texto = trim($request->get('texto'));
         $rutas = Ruta::orderBy('nombre')->paginate(10);
+        $rut=Ruta::where('nombre','LIKE','%'.$texto.'%')->get();
 
-        return view('verRuta.index', compact('rut','rutas'));
-        //return ($rutas);
+        return view('verRuta.index', compact('rut','texto','rutas'));
+        //return ($rut);
     }
 
     

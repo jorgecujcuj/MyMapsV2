@@ -16,11 +16,25 @@
                                 {{ __('Ruta') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('rutas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                             <div class="col-xl-5">
+                                <a href="{{ route('rutas.create') }}" class="btn btn-primary btn-sm"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
+                             </div>
+
+                              <div class="col-xl-12">
+                                    <form action="{{ route('rutas.index') }}" method="get">
+                                        <div class="form-row">
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="" name="texto" value="{{ $texto }}">
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="submit" class="btn btn-primary" name="Buscar">
+                                            </div>
+                                        </div>
+                                    </form>
                               </div>
+
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -34,8 +48,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+
 										<th>Codigo</th>
 										<th>Nombre</th>
 										<th>Latitud</th>
@@ -47,7 +60,6 @@
                                 <tbody>
                                     @foreach ($rutas as $ruta)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
                                             
 											<td>{{ $ruta->codigo }}</td>
 											<td>{{ $ruta->nombre }}</td>
@@ -56,7 +68,7 @@
 
                                             <td>
                                                 <form action="{{ route('rutas.destroy',$ruta->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('rutas.show',$ruta->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('rutas.show',$ruta->id) }}"><i class="fa fa-fw fa-eye"></i> Trazar Ruta</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('rutas.edit',$ruta->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')

@@ -14,7 +14,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                            
                             <div class="col-xl-12">
-                                    <form action="" method="">
+                                    <form action="{{ route('verRuta.index') }}" method="get">
                                         <div class="form-row">
                                             <div class="col-sm-4">
                                                 <!--<input type="text" class="form-control" name="texto" value="">-->
@@ -22,7 +22,7 @@
                                                 <select class="form-control" name="texto">
                                                 <option value=""selected disabled> - Selecciona una finca - </option>
                                                         @foreach ($rutas as $ruta)
-                                                        <option value="{{ $ruta->codigo }}">{{ $ruta->nombre }}</option>
+                                                        <option name="texto" value="{{ $ruta->codigo }}">{{ $ruta->nombre }}</option>
                                                         @endforeach
                                                 </select>
                                                 
@@ -31,7 +31,29 @@
                                                 <button type="submit" class="btn btn-primary" name="Buscar">Trazar ruta</button>
                                             </div>
                                         </div>
+                                        
                                     </form>
+                                    <div class="box-body">
+
+                                        <div class="form-group">
+                                            <label for="form-control">Latitud
+                                            <input type="text" class="form-control @error('latitud') is-invalid @enderror"
+                                            name="latitud" id="txtLat" value="{{ $ruta->latitud }}"
+                                            style="color:red" >
+                                            @error('latitud')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="form-control">Longitud
+                                            <input type="text" class="form-control @error('longitud') is-invalid @enderror"
+                                            name="longitud" id="txtLng" value="{{ $ruta->longitud }}"
+                                            style="color:red" >
+                                            @error('longitud')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                            </label>
+                                        </div>
+                                        
+                                    </div>
+                                    {!! $rutas->links() !!}
                             </div>
 
                             <!-- -->
